@@ -5,9 +5,9 @@
         zoomControl: true
     }).setView([16.937732, 121.764440], 18);
 
-    googleSat = L.tileLayer("http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}", {
+    googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         maxZoom: 20,
-        subdomains: ["mt0", "mt1", "mt2", "mt3"],
+        subdomains:['mt0','mt1','mt2','mt3']
     }).addTo(map);
 
     googlemap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -19,72 +19,100 @@
         "Google Map": googlemap
     };
 
+    String.prototype.toProperCase = function () {
+        return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    };
+
+    function clickme(id){
+        faculty_data = faculty.filter(data => data.id == id);
+        var d = new Date(faculty_data[0].birthday);
+        document.getElementById("img").src = "../../../imgs/faculties/default.jpg";
+        document.getElementById("name").innerHTML = faculty_data[0].name;
+        document.getElementById("gender").innerHTML = faculty_data[0].gender;
+        document.getElementById("address").innerHTML = faculty_data[0].address;
+        document.getElementById("birthday").innerHTML = d.toLocaleDateString();
+        document.getElementById("contact").innerHTML = faculty_data[0].contact;
+        document.getElementById("fb").innerHTML = faculty_data[0].fb;
+        document.getElementById("email").innerHTML = faculty_data[0].email;
+        document.getElementById("position").innerHTML = faculty_data[0].position;
+        document.getElementById("schedule").innerHTML = faculty_data[0].scheduleSY;
+        $( "#modal" ).click();
+    };
+
     L.control.layers(baseLayers, null, {position: 'topleft'}).addTo(map);
 
-
     //SAMPLES
-    var myIcon = L.icon({
-        iconUrl: '../../../imgs/depts/ccsict.png',
-        iconSize: [48, 50]
-    });
-    L.marker([16.937967896493905,121.76395699381828], {
-        icon: myIcon
-    }).addTo(map)
-        .bindPopup("<h5>CCSICT</h5>")
-    
-    var myIcon = L.icon({
-        iconUrl: '../../../imgs/depts/col.png',
-        iconSize: [48, 50]
-    });
-    L.marker([16.937269982160267,121.76371827721596], {
-        icon: myIcon
-    }).addTo(map)
-        .bindPopup("<h5>LAW</h5>")
-    
-    var myIcon = L.icon({
-        iconUrl: '../../../imgs/depts/bat.png',
-        iconSize: [48, 50]
-    });
-    L.marker([16.940183500760625,121.76472142338753], {
-        icon: myIcon
-    }).addTo(map)
-        .bindPopup("<h5>AGRICULTURE</h5>")    
-  
-        var myIcon = L.icon({
-            iconUrl: '../../../imgs/depts/ccje.png',
-            iconSize: [48, 50]
-        });
-        L.marker([16.93899936808441,121.76518946886063], {
-            icon: myIcon
-        }).addTo(map)
-            .bindPopup("<h5>CRIM</h5>")
-        
-        var myIcon = L.icon({
-            iconUrl: '../../../imgs/depts/cbm.png',
-            iconSize: [48, 50]
-        });
-        L.marker([16.937127255794294,121.76490716636181], {
-            icon: myIcon
-        }).addTo(map)
-            .bindPopup("<h5>CBM</h5>")
-        
-        var myIcon = L.icon({
-            iconUrl: '../../../imgs/depts/ITE.png',
-            iconSize: [48, 50]
-        });
-        L.marker([16.936592592242956,121.76467817276715], {
-            icon: myIcon
-        }).addTo(map)
-            .bindPopup("<h5>ITE</h5>") 
+    //alert(JSON.stringify(faculty));
 
-            var myIcon = L.icon({
-                iconUrl: '../../../imgs/depts/auto.png',
-                iconSize: [48, 50]
-            });
-            L.marker([16.93888647097202,121.76426880061626], {
-                icon: myIcon
-            }).addTo(map)
-                .bindPopup("<h5>Automotive</h5>") 
+    department.forEach(data => {
+        
+        var myIcon = L.icon({
+            iconUrl: '../../../imgs/depts/'+ data.id +'.png',
+            iconSize: [48, 50]
+        });
+        L.marker([data.longitude, data.latitude], {
+            icon: myIcon
+        }).addTo(map).on('click', click);
+
+        function click(e)
+        {
+            JSON.stri
+            const popupContent = getcontent(data.code, faculty.filter((fdata) => fdata.department_id == data.id));
+            
+            e.target.unbindPopup()
+            e.target.bindPopup(popupContent);
+            e.target.openPopup();
+            
+        }
+    });
+
+    
+    //marker.fire('click'); //select 
+    //var papa = {}
+    //papa['d1'] = {}
+
+    function getcontent(data, fdata){
+        var Instructors = "";
+        //alert(JSON.stringify(fdata))
+        fdata.forEach((fdatac, fid) => {
+            //alert(fdatac.id)
+            Instructors += `<button onclick="clickme(i = `+ fdatac.id +`)" type="button" class="d-flex justif-content-start btn w-100 btn-outline-secondary  btn-sm">`
+            + (fid + 1) + `. ` + fdatac.name + `</button>`
+        })
+        
+        var sample = 
+        `<div class="card">
+            <div class="card-header bg-success">
+                <h3 class="card-title w-100">
+                    <div class="col-md-12 text-lg d-flex justify-content-center align-items-center">`+ data.toUpperCase() +`
+                    </div>
+                </h3>
+            </div>
+            <div class="card-body p-0" style="max-height: 150px; overflow: auto; overflow-x: hidden;">
+            <table class="table table-sm" style="min-width: 300px; " >
+                <thead>
+                <tr>
+                    <th class='' style="font-size: 16px">Instructor</th>
+                </tr>
+                </thead>
+                <tbody style="">
+                <tr style="border:none; " >
+                    <td class="w-100 p-0 py-0" style="">` + 
+                    Instructors
+                    + `</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        </div>`
+
+        return sample;
+    }
+   
+    
 
     
     var cauayanJSON = {
@@ -139,9 +167,13 @@
         },],
     };
    
-    L.geoJSON(cauayanJSON).addTo(map);
-    
-   
+    L.geoJSON(cauayanJSON,{
+        style: function(){
+            return { color: 'yellow', weight: 6 }
+        }
+    }).addTo(map);
+
+  
     
 
     
