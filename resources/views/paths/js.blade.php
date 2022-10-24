@@ -1,6 +1,3 @@
-
- 
- 
 {{-- GRAPH D3 --}}
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -58,15 +55,16 @@ crossorigin=""></script>
         @break
 @endswitch --}}
 <script src="{{ asset('userinterface/dist/js/map/map.js') }}"></script>
-
-
-
+<script src="{{ asset('userinterface/dist/js/map/edep.js') }}"></script>
+<script src="{{ asset('userinterface/dist/js/map/ndep.js') }}"></script>
+{{-- <script src="{{ asset('userinterface/dist/js/map/guide.js') }}"></script>
+<script src="{{ asset('userinterface/dist/js/map/eguide.js') }}"></script> --}}
 
 {{-- icons --}}
 <script src="https://kit.fontawesome.com/ef77a65c1c.js" crossorigin="anonymous"></script>
 
 {{-- Adminlte --}}
-<!-- jQuery -->
+{{-- <!-- jQuery -->
 <script src="{{ asset('userinterface/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('userinterface/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -85,7 +83,20 @@ crossorigin=""></script>
 <!-- bs-custom-file-input -->
 <script src="{{ asset('userinterface/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- Select2 -->
+<script src="{{ asset('userinterface/plugins/select2/js/select2.full.min.js') }}"></script> --}}
+
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
 <script src="{{ asset('userinterface/plugins/select2/js/select2.full.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('userinterface/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+{{-- <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js') }}"></script> --}}
+
+{{-- input mask --}}
+{{-- <script src="{{ asset('userinterface//plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('userinterface//plugins/inputmask/jquery.inputmask.min.js') }}"></script> --}}
+
 {{-- <!-- Bootstrap4 Duallistbox -->
 <script src="{{ asset('userinterface/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') }}"></script>
  --}}
@@ -94,10 +105,7 @@ crossorigin=""></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script> --}}
 
-
-
-
-<script src="{{ asset('userinterface/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+{{-- <script src="{{ asset('userinterface/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('userinterface/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('userinterface/plugins/datatables/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('userinterface/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
@@ -106,7 +114,7 @@ crossorigin=""></script>
 <script src="{{ asset('userinterface/plugins/datatables/jszip.min.js') }}"></script>
 <script src="{{ asset('userinterface/plugins/datatables/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('userinterface/plugins/datatables/buttons.print.min.js') }}"></script>
-<script src="{{ asset('userinterface/plugins/datatables/buttons.colVis.min.js') }}"></script>
+<script src="{{ asset('userinterface/plugins/datatables/buttons.colVis.min.js') }}"></script> --}}
 
 
 

@@ -18,7 +18,6 @@ crossorigin=""/>
 {{-- <script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script> --}}
-
  
  {{-- Leaflet layer control style --}}
  <link rel="stylesheet" href="{{ asset('userinterface/dist/css/styledLayerControl.css') }}">
@@ -30,7 +29,7 @@ crossorigin=""/>
 
 
  {{-- Adminlte --}}
- <!-- Google Font: Source Sans Pro -->
+ {{-- <!-- Google Font: Source Sans Pro -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
  <!-- Font Awesome -->
  <link rel="stylesheet" href="{{ asset('userinterface/plugins/fontawesome-free/css/all.min.css') }}">
@@ -43,7 +42,15 @@ crossorigin=""/>
 <!-- overlayScrollbars -->
  <link rel="stylesheet" href="{{ asset('userinterface/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 <!-- Select2 -->
-<link rel="stylesheet" href="{{ asset('userinterface/plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('userinterface/plugins/select2/css/select2.css') }}">
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> --}}
+
+
 {{-- <link rel="stylesheet" href="{{ asset('userinterface/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
  <!-- Bootstrap4 Duallistbox -->
  <link rel="stylesheet" href="{{ asset('userinterface/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
@@ -60,14 +67,25 @@ crossorigin=""/>
  <link rel="stylesheet" href="https://cdn.datatables.net/colvis/1.1.2/css/dataTables.colvis.jqueryui.css"> --}}
 
 
-
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
 
  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('userinterface/plugins/select2/css/select2.css') }}">
 
 
- <link rel="stylesheet" href="{{ asset('userinterface/plugins/datatables/dataTables.bootstrap4.min.css') }}">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css"> --}}
+{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> --}}
+
+
+{{--  <link rel="stylesheet" href="{{ asset('userinterface/plugins/datatables/dataTables.bootstrap4.min.css') }}">
  <link rel="stylesheet" href="{{ asset('userinterface/plugins/datatables/responsive.bootstrap4.min.css') }}">
- <link rel="stylesheet" href="{{ asset('userinterface/plugins/datatables/buttons.bootstrap4.min.css') }}">
+ <link rel="stylesheet" href="{{ asset('userinterface/plugins/datatables/buttons.bootstrap4.min.css') }}"> --}}
 
 
 {{---------------------------- REMOVED PATHS --------------------------------}}
@@ -87,3 +105,5 @@ crossorigin=""/>
  <link rel="stylesheet" href="{{ asset('userinterface/plugins/ion-rangeslider/css/ion.rangeSlider.min.css') }}"> --}}
 {{-- <!-- Tempusdominus Bootstrap 4 -->
  <link rel="stylesheet" href="{{ asset('userinterface/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}"> --}}
+
+ 

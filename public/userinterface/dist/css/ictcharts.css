@@ -210,5 +210,8 @@ animation-direction: alternate;
 	transition: all .5s linear;
   }
 	
-
+  .file {
+	visibility: hidden;
+	position: absolute;
+	}
   

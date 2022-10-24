@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="{{ asset('userinterface/imgs/favicon.png') }}" rel="icon">
-  <title>GIS Senior Citizen</title>
+  <title>GIS Faculty</title>
   <!-- CSS -->
  
   @livewireStyles
@@ -34,13 +34,13 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="{{ route('map') }}" class="nav-link"><i class="nav-icon fas fa-location-dot pr-2"></i>Map</a>
+            <a href="{{ route('map') }}" class="nav-link {{ (Request::is('*map*') ? 'active' : '') }}"><i class="nav-icon fas fa-location-dot pr-2"></i>Map</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('map') }}" class="nav-link"><i class="nav-icon fas fa-building pr-2"></i>Departments</a>
+            <a href="{{ route('department') }}" class="nav-link {{ (Request::is('*department*') ? 'active' : '') }}"><i class="nav-icon fas fa-building pr-2"></i>Departments</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('map') }}" class="nav-link"><i class="nav-icon fas fa-user-tie pr-2"></i>Faculty</a>
+            <a href="{{ route('faculty') }}" class="nav-link {{ (Request::is('*faculty*') ? 'active' : '') }}"><i class="nav-icon fas fa-user-tie pr-2"></i>Faculty</a>
           </li>
         </ul>
 

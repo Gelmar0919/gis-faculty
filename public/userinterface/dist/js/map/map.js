@@ -23,10 +23,11 @@
         return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
     };
 
+
     function clickme(id){
         faculty_data = faculty.filter(data => data.id == id);
         var d = new Date(faculty_data[0].birthday);
-        document.getElementById("img").src = "../../../imgs/faculties/default.jpg";
+        document.getElementById("img").src = "../../../imgs/faculties/dynamic/"+ faculty_data[0].id +"." + extensionsfaculty[faculty_data[0].id];
         document.getElementById("name").innerHTML = faculty_data[0].name;
         document.getElementById("gender").innerHTML = faculty_data[0].gender;
         document.getElementById("address").innerHTML = faculty_data[0].address;
@@ -36,6 +37,7 @@
         document.getElementById("email").innerHTML = faculty_data[0].email;
         document.getElementById("position").innerHTML = faculty_data[0].position;
         document.getElementById("schedule").innerHTML = faculty_data[0].scheduleSY;
+        document.getElementById("cstatus").innerHTML = faculty_data[0].cstatus;
         $( "#modal" ).click();
     };
 
@@ -47,7 +49,7 @@
     department.forEach(data => {
         
         var myIcon = L.icon({
-            iconUrl: '../../../imgs/depts/'+ data.id +'.png',
+            iconUrl: '../../../imgs/depts/dynamic/'+ data.id +"." + extensions[data.id],
             iconSize: [48, 50]
         });
         L.marker([data.longitude, data.latitude], {
@@ -92,7 +94,7 @@
             <table class="table table-sm" style="min-width: 300px; " >
                 <thead>
                 <tr>
-                    <th class='' style="font-size: 16px">Instructor</th>
+                    <th class='' style="font-size: 16px">Faculty</th>
                 </tr>
                 </thead>
                 <tbody style="">

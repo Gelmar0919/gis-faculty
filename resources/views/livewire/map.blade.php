@@ -2,13 +2,18 @@
 <script>
     department = @json($department);
     faculty = @json($faculty);
+    extensions = @json($extensions);
+    extensionsfaculty = @json($extensionsfaculty);
 </script>
 <button id="modal" type="button" style="display: none"  class="btn btn-primary" data-toggle="modal" data-target="#moreinfo"></button>
 <div class="modal fade" id="moreinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title text-success"><i class="fas fa-id-card mr-2"></i>Instructor</h5>
+          <h5 class="modal-title text-success"><i class="fas fa-id-card mr-2"></i>
+            <span></span>
+            Faculty
+            </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -26,6 +31,7 @@
                     <b>Address: </b> <span id="address"></span> <br/>
                     <b>Birthday: </b> <span id="birthday"></span> <br/>
                     <b>Contact #: </b> <span id="contact"></span> <br/>
+                    <b>Civil Status: </b> <span id="cstatus"></span> <br/>
                     <b>FB Name: </b> <span id="fb"></span> <br/>
                     <b>Email: </b> <span id="email"></span> <br/>
                     <b>Position: </b> <span id="position"></span> <br/>

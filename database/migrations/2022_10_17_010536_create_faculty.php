@@ -21,10 +21,11 @@ class CreateFaculty extends Migration
             $table->string('address');
             $table->dateTime('birthday', $precision = 0);
             $table->string('contact');
-            $table->string('fb');
+            $table->string('fb')->nullable();
             $table->string('email');
             $table->string('position');
-            $table->string('scheduleSY');
+            $table->string('cstatus');
+            $table->string('scheduleSY')->nullable();
             $table->double('latitude',100,14)->nullable();
             $table->double('longitude',100,14)->nullable();
         });
