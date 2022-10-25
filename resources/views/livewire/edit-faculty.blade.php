@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label>Gender</label>
-                {{-- <input wire:model.lazy="cstatus" type="text" class="form-control" placeholder="Civil Status"> --}}
+               
                 <select class="form-control" wire:model="gender" >
                     <option selected></option>
                     <option value="Male">Male</option>
@@ -69,7 +69,7 @@
             </div>
             <div class="form-group">
                 <label>Civil Status</label>
-                {{-- <input wire:model.lazy="cstatus" type="text" class="form-control" placeholder="Civil Status"> --}}
+             
                 <select class="form-control" wire:model="cstatus" >
                     <option selected></option>
                     <option value="Male">Single</option>
@@ -96,14 +96,13 @@
         <div class="col-lg-6 mt-2">
             <div class="form-group">
                 <label>Department</label>
-                {{-- <input wire:model.lazy="cstatus" type="text" class="form-control" placeholder="Civil Status"> --}}
+              
                 <select class="form-control" wire:model="department_id" >
-                    {{-- <option selected></option> --}}
+                  
                     @foreach ($departments as $data)
                         <option value="{{$data->id}}">{{$data->department}}</option>
                     @endforeach
-                    {{-- <option value="Single">Single</option>
-                    <option value="Married">Married</option> --}}
+                  
 
                 </select>
                 @error('department_id')
@@ -137,9 +136,7 @@
             </div>
     
         </div>
-        {{-- <label class="mx-2 d-flex justify-content-center text-danger"><span class="mt-1 pr-1 nav-icon fas fa-circle-exclamation">
-        </span>Please select barangay</label> --}}
-
+       
         <input wire:model="lat" id="lang" type="text" class="form-control" style="display: none">
         <input wire:model="lang" id="lat" type="text" class="form-control" style="display: none">
         
@@ -155,11 +152,7 @@
         </div>
     
         
-        {{-- <div class="text-right">
-            <button type="button" class="btn btn-primary float-sm-right">
-                Save
-            </button>
-        </div> --}}
+       
         @if($errors->any())
             <script>
                 document.addEventListener('message', function () {
@@ -177,10 +170,7 @@
                        minYear: 1901,
                        maxYear: parseInt(moment().format('YYYY'),10)
                      }, function(start, end, label) {
-                       //var years = moment().diff(start, 'years');
-                       //document.getElementById("age").value = "Age: " + years;
-                       //document.getElementById("age2").value = years;
-                       //document.getElementById("age2").dispatchEvent(new Event('input'));
+                      
                      });
                    });
            
