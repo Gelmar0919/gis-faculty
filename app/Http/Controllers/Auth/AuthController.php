@@ -42,14 +42,14 @@ class AuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-   
+        
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                        ->withSuccess('You have Successfully loggedin');
+            return redirect()->intended('map');
         }
   
-        return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+        return redirect("login")->withErrors(['errormsg' => 'Account does not exist']);
     }
       
     /**
@@ -68,7 +68,7 @@ class AuthController extends Controller
         $data = $request->all();
         $check = $this->create($data);
          
-        return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
+        return redirect("login")->with('success', 'Log new account');   
     }
     
     /**
@@ -108,6 +108,6 @@ class AuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect('login');
+        return Redirect('map');
     }
 }

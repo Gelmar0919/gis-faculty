@@ -21,33 +21,35 @@ Route::get('/map', function () {
     return view('map');
 })->name('map');
 
-Route::get('/department', function () {
-    return view('department');
-})->name('department');
+Route::group(['middleware' => ['auth']],function () {
+    Route::get('/department', function () {
+        return view('department');
+    })->name('department');
 
-Route::get('/add-department', function () {
-    return view('add-department');
-})->name('newDep');
+    Route::get('/add-department', function () {
+        return view('add-department');
+    })->name('newDep');
 
-Route::get('/edit-department', function () {
-    return view('edit-department');
-})->name('editDep');
+    Route::get('/edit-department', function () {
+        return view('edit-department');
+    })->name('editDep');
 
-Route::get('/faculty', function () {
-    return view('faculty');
-})->name('faculty');
+    Route::get('/faculty', function () {
+        return view('faculty');
+    })->name('faculty');
 
-Route::get('/add-faculty', function () {
-    return view('add-faculty');
-})->name('newFaculty');
+    Route::get('/add-faculty', function () {
+        return view('add-faculty');
+    })->name('newFaculty');
 
-Route::get('/edit-faculty', function () {
-    return view('edit-faculty');
-})->name('editFaculty');
+    Route::get('/edit-faculty', function () {
+        return view('edit-faculty');
+    })->name('editFaculty');
+
+    Route::get('registration', [AuthController::class, 'registration'])->name('register');
+    Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+});
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [AuthController::class, 'dashboard']); 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');

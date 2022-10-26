@@ -72,8 +72,8 @@
              
                 <select class="form-control" wire:model="cstatus" >
                     <option selected></option>
-                    <option value="Male">Single</option>
-                    <option value="Female">Married</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
                 </select>
                 @error('cstatus')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
