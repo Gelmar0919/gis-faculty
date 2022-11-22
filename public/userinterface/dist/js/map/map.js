@@ -33,7 +33,7 @@
         faculty_data = faculty.filter(data => data.id == id);
         var d = new Date(faculty_data[0].birthday);
 
-
+        document.getElementById("position").innerHTML = faculty_data[0].position;
         document.getElementById("subjects").innerHTML = faculty_data[0].subjects;
         document.getElementById("bd").innerHTML = faculty_data[0].bd;
         document.getElementById("md").innerHTML = faculty_data[0].md;
