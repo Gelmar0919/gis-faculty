@@ -21,7 +21,7 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="{{ route('map') }}" class="navbar-brand">
+      <a href="{{ route('home') }}" class="navbar-brand">
         <img src="{{ asset('userinterface/dist/img/SystemLogoDarkGreen.png') }}" alt="GIS Cauayan" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">GIS Faculty</span>
       </a>

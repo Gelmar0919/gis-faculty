@@ -15,7 +15,7 @@
             </div>
             <div class="form-group">
                 <label>Gender</label>
-               
+                
                 <select class="form-control" wire:model="gender" >
                     <option selected></option>
                     <option value="Male">Male</option>
@@ -33,27 +33,28 @@
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-group">
+
+            {{-- <div class="form-group">
                 <label >Email</label>
                 <input wire:model.lazy="email" type="email" class="form-control" placeholder="Email">
                 @error('email')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
-            </div>
-            <div class="form-group">
+            </div> --}}
+            {{-- <div class="form-group">
                 <label >Contact</label>
                 <input wire:model.lazy="contact" type="text" class="form-control" placeholder="Contact">
                 @error('contact')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
-            </div>
-            <div class="form-group">
+            </div> --}}
+            {{-- <div class="form-group">
                 <label >FB Name</label>
                 <input wire:model.lazy="fb" type="text" class="form-control" placeholder="FB Name">
                 @error('fb')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label >Birthday</label>
                 <div class="input-group" >
@@ -69,7 +70,7 @@
             </div>
             <div class="form-group">
                 <label>Civil Status</label>
-             
+                {{-- <input wire:model.lazy="cstatus" type="text" class="form-control" placeholder="Civil Status"> --}}
                 <select class="form-control" wire:model="cstatus" >
                     <option selected></option>
                     <option value="Single">Single</option>
@@ -79,44 +80,13 @@
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label >Schedule SY:</label>
                 <input wire:model.lazy="scheduleSY" type="text" class="form-control" placeholder="Schedule SY">
                 @error('scheduleSY')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
-            </div>
-
-            
-    
-           
-    
-        </div>
-        
-        <div class="col-lg-6 mt-2">
-            <div class="form-group">
-                <label>Department</label>
-              
-                <select class="form-control" wire:model="department_id" >
-                  
-                    @foreach ($departments as $data)
-                        <option value="{{$data->id}}">{{$data->department}}</option>
-                    @endforeach
-                  
-
-                </select>
-                @error('department_id')
-                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="form-group">
-                <label >Position</label>
-                <input wire:model.lazy="position" type="text" class="form-control" placeholder="Position">
-                @error('position')
-                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
-                @enderror
-            </div>
-
+            </div> --}}
             <div class="mt-4">
                 <form method="post" id="image-form">
                     <input type="file" name="img[]" wire:model="photo" class="file" accept="image/*">
@@ -131,9 +101,89 @@
             </div>
             <div class="container" wire:ignore>
                 <div class="col-12 d-flex justify-content-center" >
-                    <img src="{{ asset("imgs/faculties/dynamic/$image") }}" id="preview" class="img-thumbnail img-fluid" style="object-fit: contain; height: 400px;">
+                    <img src="{{ asset('imgs/faculties/static/default.jpg') }}" id="preview" class="img-thumbnail img-fluid" style="object-fit: contain; height: 400px;">
                 </div>
             </div>
+            
+    
+           
+    
+        </div>
+        
+        <div class="col-lg-6 mt-2">
+            <div class="form-group">
+                <label>Department</label>
+                
+                <select class="form-control" wire:model="department_id" >
+                    <option selected></option>
+                    @foreach ($departments as $data)
+                        <option value="{{$data->id}}">{{$data->department}}</option>
+                    @endforeach
+
+                </select>
+                @error('department_id')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Current Position</label>
+                <input wire:model.lazy="position" type="text" class="form-control" placeholder="Position">
+                @error('position')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Subjects:</label>
+                <input wire:model.lazy="subjects" type="text" class="form-control" placeholder="Subjects">
+                @error('subjects')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label >Baccalaureate Degree:</label>
+                <input wire:model.lazy="bd" type="text" class="form-control" placeholder="Baccalaureate Degree">
+                @error('bd')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Year Graduated:</label>
+                <input wire:model.lazy="bdy" type="text" class="form-control" placeholder="Year Graduated">
+                @error('bdy')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Masters Degree:</label>
+                <input wire:model.lazy="md" type="text" class="form-control" placeholder="Masters Degree">
+                @error('md')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Year Graduated:</label>
+                <input wire:model.lazy="mdy" type="text" class="form-control" placeholder="Year Graduated">
+                @error('mdy')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Doctors Degree:</label>
+                <input wire:model.lazy="dd" type="text" class="form-control" placeholder="Doctors Degree">
+                @error('dd')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Year Graduated:</label>
+                <input wire:model.lazy="ddy" type="text" class="form-control" placeholder="Year Graduated">
+                @error('ddy')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+
+            
     
         </div>
        

@@ -20,30 +20,72 @@
         </div>
         <div class="modal-body">
             <div class="row">
-                <div class="col-md-6 ">
-                    <img id="img" src="{{ asset('storage/dynamic/img/img_2.jpg') }}" 
-                    class="rounded img-thumbnail" alt="Cinque Terre" > 
-                </div>
-                <div class="col-md-6">
-                    
-                    <b>Name: </b> <span id="name"></span> <br/>
-                    <b>Gender: </b> <span id="gender"></span> <br/>
-                    <b>Address: </b> <span id="address"></span> <br/>
-                    <b>Birthday: </b> <span id="birthday"></span> <br/>
-                    <b>Contact #: </b> <span id="contact"></span> <br/>
-                    <b>Civil Status: </b> <span id="cstatus"></span> <br/>
-                    <b>FB Name: </b> <span id="fb"></span> <br/>
-                    <b>Email: </b> <span id="email"></span> <br/>
-                    <b>Position: </b> <span id="position"></span> <br/>
-                    <b>Schedule SY: </b> <span id="schedule"></span> <br/>
+              <div class="col-12">
+                
+                <div class="card container" style="margin-bottom: 10px; padding-bottom: 10px; background-color: #eaecea">
+                  <div class="row">
+                   
+                    <div class="col-sm-6 mt-2">
+                      <img id="img" src="{{ asset('storage/dynamic/img/img_2.jpg') }}" 
+                      class="rounded img-thumbnail" alt="Cinque Terre" > 
+                    </div>
+                    <div class="col-sm-6 mb-2 mt-1">
+                        
+                        <b class="text-">Name: </b> <span style="overflow-wrap: break-word;" id="name"></span> <br/>
+                        <b class="text-">Gender: </b> <span style="overflow-wrap: break-word;" id="gender"></span> <br/>
+                        <b class="text-">Address: </b> <span style="overflow-wrap: break-word;" id="address"></span> <br/>
+                        <b class="text-">Birthday: </b> <span style="overflow-wrap: break-word;" id="birthday"></span> <br/>
+                        <b class="text-">Age: </b> <span style="overflow-wrap: break-word;" id="age"></span> <br/>
+                        <b class="text-">Civil Status: </b> <span style="overflow-wrap: break-word;" id="cstatus"></span> <br/>
+                      
+                        {{-- <b>Contact #: </b> <span id="contact"></span> <br/>
+                        <b>FB Name: </b> <span id="fb"></span> <br/>
+                        <b>Email: </b> <span id="email"></span> <br/>
+                        <b>Position: </b> <span id="position"></span> <br/>
+                        <b>Schedule SY: </b> <span id="schedule"></span> <br/> --}}
+                        
+                        {{-- <b >Sample: </b> <span style="overflow-wrap: break-word;">djsflkajdlkfjsdlkjfsldkfsadfasdfssdfsdfsdfdf</span> <br/> --}}
+                      
+                        {{-- <div class="col-md-12 card mt-2" style="background-color: #6584b5">
+                            <b class="text-white pt-2 ">Mental Disorder: </b> 
+                            <span class="pb-2 text-white"><span id="disorder"></span></span> 
+                        </div> --}}
+                      
+                      
+                    </div>
+                  </div>
                   
-                    {{-- <div class="col-md-12 card mt-2" style="background-color: #6584b5">
-                        <b class="text-white pt-2 ">Mental Disorder: </b> 
-                        <span class="pb-2 text-white"><span id="disorder"></span></span> 
-                    </div> --}}
-                   
-                   
                 </div>
+
+                <div class="card container" style="background-color: #eaecea">
+                  <b class="d-flex justify-content-center mt-2" style="color: rgb(3, 67, 17)">Academic Profile</b>
+                  <div class="row">
+                    
+                    <div class="col-sm-6 mt-2">
+                      <b class="text-">Baccalaureate Degree: </b> <span style="overflow-wrap: break-word;" id="bd"></span> <br/>
+                      <b class="text-">Year Graduated: </b> <span style="overflow-wrap: break-word;" id="bdy"></span> <br/><br/>
+                      <b class="text-">Master's Degree: </b> <span style="overflow-wrap: break-word;" id="md"></span> <br/>
+                      <b class="text-">Year Graduated: </b> <span style="overflow-wrap: break-word;" id="mdy"></span> <br/><br/>
+                      <b class="text-">Doctorate Degree: </b> <span style="overflow-wrap: break-word;" id="dd"></span> <br/>
+                      <b class="text-">Year Graduated: </b> <span style="overflow-wrap: break-word;" id="ddy"></span> <br/><br/> 
+                    </div>
+                    <div class="col-sm-6 mb-2 mt-2">
+                        
+                        <b class="text-">Current Position: </b> <span style="overflow-wrap: break-word;" id="position"></span> <br/>
+                        <b class="text-">Subjects: </b> <span style="overflow-wrap: break-word;" id="subjects"></span>Sample<br/><br/> 
+                      
+                      
+                    </div>
+                  
+                  </div>
+                </div>
+              
+              </div>
+                
+
+              
+
+
             </div>
         </div>
         {{-- <div class="modal-footer">
@@ -51,6 +93,6 @@
         </div> --}}
       </div>
     </div>
-  </div>
+</div>
 
 

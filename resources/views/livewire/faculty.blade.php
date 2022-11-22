@@ -102,9 +102,9 @@
               @include('set-sorting-icons',['field'=>'code'])
             </a></th>
             @endif
-            @if($this->showColumn('contact'))
-            <th ><a role="button" wire:click.prevent="sortField('contact')" style="width: 20%;">Contact
-              @include('set-sorting-icons',['field'=>'contact'])
+            @if($this->showColumn('position'))
+            <th ><a role="button" wire:click.prevent="sortField('contact')" style="width: 20%;">Position
+              @include('set-sorting-icons',['field'=>'position'])
             </a></th>
             @endif
             {{-- @if($this->showColumn('gender'))
@@ -161,8 +161,8 @@
                 @if($this->showColumn('code'))
                   <td>{{$data->code}}</td>
                 @endif
-                @if($this->showColumn('contact'))
-                  <td>{{$data->contact}}</td>
+                @if($this->showColumn('position'))
+                  <td>{{$data->position}}</td>
                 @endif
                 {{-- @if($this->showColumn('gender'))
                   <td>{{$data->gender}}</td>

@@ -14,8 +14,12 @@ use App\Http\Controllers\auth\AuthController;
 */
 
 Route::get('/', function(){
+    return view('home');
+})->name('home');
+
+/* Route::get('/', function(){
     return redirect()->route('map');
-});
+}); */
 
 Route::get('/map', function () {
     return view('map');

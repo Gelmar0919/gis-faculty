@@ -31,6 +31,14 @@ class EditFaculty extends Component
     public $image;
     public $extensions;
 
+    public $subjects;
+    public $bd;
+    public $bdy;
+    public $md;
+    public $mdy;
+    public $dd;
+    public $ddy;
+
     public function update(){
         $this->dispatchBrowserEvent('message');
 
@@ -38,8 +46,8 @@ class EditFaculty extends Component
             'name' => ['required','regex:/^[a-zA-Z\s]+$/'],
             'gender' => ['required'],
             'address' => ['required','regex:/^[a-zA-Z0-9,\s]+$/'],
-            'email' => ['required','email'],
-            'contact' => ['required'],
+            //'email' => ['required','email'],
+            //'contact' => ['required'],
             'cstatus' => ['required'],
             'department_id' => ['required'],
             'position' => ['required'],
@@ -50,8 +58,8 @@ class EditFaculty extends Component
             'gender.required' => "Gender required",
             'address.required' => "Address required",
             'address.regex' => "Invalid",
-            'email.required' => "Email required",
-            'contact.required' => "Contact required",
+            //'email.required' => "Email required",
+            //'contact.required' => "Contact required",
             'cstatus.required' => "Civil status required",
             'department_id.required' => "Department required",
             'position.required' => "Position required",
@@ -73,6 +81,14 @@ class EditFaculty extends Component
                 'cstatus' => $this->cstatus, 
                 'position' => $this->position, 
                 'scheduleSY' => $this->scheduleSY, 
+
+                'subjects' => $this->subjects, 
+                'bd' => $this->bd, 
+                'bdy' => $this->bdy, 
+                'md' => $this->md, 
+                'mdy' => $this->mdy, 
+                'dd' => $this->dd, 
+                'ddy' => $this->ddy, 
                 ]
         );
 
@@ -103,8 +119,8 @@ class EditFaculty extends Component
     {   
         $this->faculty_id = $faculty_id;
         $this->papaketchup = DB::table('faculty')
-        ->select('faculty.id', 'faculty.name', 'faculty.gender', 'faculty.address', 'faculty.birthday','department.department',
-        'faculty.contact', 'faculty.fb', 'faculty.email', 'faculty.cstatus', 'faculty.position','faculty.scheduleSY','faculty.department_id')
+        //->select('faculty.id', 'faculty.name', 'faculty.gender', 'faculty.address', 'faculty.birthday','department.department',
+        //'faculty.contact', 'faculty.fb', 'faculty.email', 'faculty.cstatus', 'faculty.position','faculty.scheduleSY','faculty.department_id')
         ->join('department','department.id','=','faculty.department_id')
         ->where("faculty.id",'=',$faculty_id)
         ->get();
@@ -122,6 +138,14 @@ class EditFaculty extends Component
         $this->cstatus = $data->cstatus;
         $this->position = $data->position;
         $this->scheduleSY = $data->scheduleSY;
+
+        $this->subjects = $data->subjects;
+        $this->bd = $data->bd;
+        $this->bdy = $data->bdy;
+        $this->md = $data->md;
+        $this->mdy = $data->mdy;
+        $this->dd = $data->dd;
+        $this->ddy = $data->ddy; 
         
         
         $filesInFolder = File::files(public_path("imgs\\faculties\\dynamic"));   

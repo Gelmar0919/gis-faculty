@@ -33,27 +33,28 @@
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-group">
+
+            {{-- <div class="form-group">
                 <label >Email</label>
                 <input wire:model.lazy="email" type="email" class="form-control" placeholder="Email">
                 @error('email')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
-            </div>
-            <div class="form-group">
+            </div> --}}
+            {{-- <div class="form-group">
                 <label >Contact</label>
                 <input wire:model.lazy="contact" type="text" class="form-control" placeholder="Contact">
                 @error('contact')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
-            </div>
-            <div class="form-group">
+            </div> --}}
+            {{-- <div class="form-group">
                 <label >FB Name</label>
                 <input wire:model.lazy="fb" type="text" class="form-control" placeholder="FB Name">
                 @error('fb')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label >Birthday</label>
                 <div class="input-group" >
@@ -79,14 +80,30 @@
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label >Schedule SY:</label>
                 <input wire:model.lazy="scheduleSY" type="text" class="form-control" placeholder="Schedule SY">
                 @error('scheduleSY')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
+            </div> --}}
+            <div class="mt-4">
+                <form method="post" id="image-form">
+                    <input type="file" name="img[]" wire:model="photo" class="file" accept="image/*">
+                    <div class="input-group my-3">
+                    <input type="text" class="form-control" disabled placeholder="Choose Image" id="file">
+                    <div class="input-group-append">
+                        <button type="button" class="browse btn btn-primary">Browse</button>
+                    </div>
+                    
+                    </div>
+                </form>
             </div>
-
+            <div class="container" wire:ignore>
+                <div class="col-12 d-flex justify-content-center" >
+                    <img src="{{ asset('imgs/faculties/static/default.jpg') }}" id="preview" class="img-thumbnail img-fluid" style="object-fit: contain; height: 400px;">
+                </div>
+            </div>
             
     
            
@@ -109,30 +126,64 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label >Position</label>
+                <label >Current Position</label>
                 <input wire:model.lazy="position" type="text" class="form-control" placeholder="Position">
                 @error('position')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="form-group">
+                <label >Subjects:</label>
+                <input wire:model.lazy="subjects" type="text" class="form-control" placeholder="Subjects">
+                @error('subjects')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
 
-            <div class="mt-4">
-                <form method="post" id="image-form">
-                    <input type="file" name="img[]" wire:model="photo" class="file" accept="image/*">
-                    <div class="input-group my-3">
-                    <input type="text" class="form-control" disabled placeholder="Choose Image" id="file">
-                    <div class="input-group-append">
-                        <button type="button" class="browse btn btn-primary">Browse</button>
-                    </div>
-                    
-                    </div>
-                </form>
+            <div class="form-group">
+                <label >Baccalaureate Degree:</label>
+                <input wire:model.lazy="bd" type="text" class="form-control" placeholder="Baccalaureate Degree">
+                @error('bd')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
             </div>
-            <div class="container" wire:ignore>
-                <div class="col-12 d-flex justify-content-center" >
-                    <img src="{{ asset('imgs/faculties/static/default.jpg') }}" id="preview" class="img-thumbnail img-fluid" style="object-fit: contain; height: 400px;">
-                </div>
+            <div class="form-group">
+                <label >Year Graduated:</label>
+                <input wire:model.lazy="bdy" type="text" class="form-control" placeholder="Year Graduated">
+                @error('bdy')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
             </div>
+            <div class="form-group">
+                <label >Masters Degree:</label>
+                <input wire:model.lazy="md" type="text" class="form-control" placeholder="Masters Degree">
+                @error('md')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Year Graduated:</label>
+                <input wire:model.lazy="mdy" type="text" class="form-control" placeholder="Year Graduated">
+                @error('mdy')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Doctors Degree:</label>
+                <input wire:model.lazy="dd" type="text" class="form-control" placeholder="Doctors Degree">
+                @error('dd')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Year Graduated:</label>
+                <input wire:model.lazy="ddy" type="text" class="form-control" placeholder="Year Graduated">
+                @error('ddy')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+
+            
     
         </div>
 

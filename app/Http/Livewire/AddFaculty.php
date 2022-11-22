@@ -27,6 +27,14 @@ class AddFaculty extends Component
     public $photo;
     public $departments;
 
+    public $subjects;
+    public $bd;
+    public $bdy;
+    public $md;
+    public $mdy;
+    public $dd;
+    public $ddy;
+
 
     public function save(){
         $this->dispatchBrowserEvent('message');
@@ -35,8 +43,8 @@ class AddFaculty extends Component
             'name' => ['required','regex:/^[a-zA-Z\s]+$/'],
             'gender' => ['required'],
             'address' => ['required','regex:/^[a-zA-Z0-9,\s]+$/'],
-            'email' => ['required','email'],
-            'contact' => ['required'],
+            //'email' => ['required','email'],
+            //'contact' => ['required'],
             'cstatus' => ['required'],
             'department_id' => ['required'],
             'position' => ['required'],
@@ -47,8 +55,8 @@ class AddFaculty extends Component
             'gender.required' => "Gender required",
             'address.required' => "Address required",
             'address.regex' => "Invalid",
-            'email.required' => "Email required",
-            'contact.required' => "Contact required",
+            //'email.required' => "Email required",
+            //'contact.required' => "Contact required",
             'cstatus.required' => "Civil status required",
             'department_id.required' => "Department required",
             'position.required' => "Position required",
@@ -68,6 +76,13 @@ class AddFaculty extends Component
                 'cstatus' => $this->cstatus, 
                 'position' => $this->position, 
                 'scheduleSY' => $this->scheduleSY, 
+                'subjects' => $this->subjects, 
+                'bd' => $this->bd, 
+                'bdy' => $this->bdy, 
+                'md' => $this->md, 
+                'mdy' => $this->mdy, 
+                'dd' => $this->dd, 
+                'ddy' => $this->ddy, 
                 )
         );
 

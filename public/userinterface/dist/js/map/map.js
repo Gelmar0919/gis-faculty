@@ -23,21 +23,42 @@
         return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
     };
 
+    function getAge(birthday) {
+        const millis = Date.now() - Date.parse(birthday);
+        return new Date(millis).getFullYear() - 1970;
+    };
+
 
     function clickme(id){
         faculty_data = faculty.filter(data => data.id == id);
         var d = new Date(faculty_data[0].birthday);
+
+
+        document.getElementById("subjects").innerHTML = faculty_data[0].subjects;
+        document.getElementById("bd").innerHTML = faculty_data[0].bd;
+        document.getElementById("md").innerHTML = faculty_data[0].md;
+        document.getElementById("dd").innerHTML = faculty_data[0].dd;
+        document.getElementById("bdy").innerHTML = faculty_data[0].bdy;
+        document.getElementById("mdy").innerHTML = faculty_data[0].mdy;
+        document.getElementById("ddy").innerHTML = faculty_data[0].ddy;
+
         document.getElementById("img").src = "../../../imgs/faculties/dynamic/"+ faculty_data[0].id +"." + extensionsfaculty[faculty_data[0].id];
         document.getElementById("name").innerHTML = faculty_data[0].name;
         document.getElementById("gender").innerHTML = faculty_data[0].gender;
         document.getElementById("address").innerHTML = faculty_data[0].address;
         document.getElementById("birthday").innerHTML = d.toLocaleDateString();
-        document.getElementById("contact").innerHTML = faculty_data[0].contact;
+        document.getElementById("age").innerHTML = getAge(d);
+        document.getElementById("cstatus").innerHTML = faculty_data[0].cstatus;
+
+        
+        /* alert(JSON.stringify(faculty_data[0])); */
+        /* document.getElementById("contact").innerHTML = faculty_data[0].contact;
         document.getElementById("fb").innerHTML = faculty_data[0].fb;
         document.getElementById("email").innerHTML = faculty_data[0].email;
+
         document.getElementById("position").innerHTML = faculty_data[0].position;
-        document.getElementById("schedule").innerHTML = faculty_data[0].scheduleSY;
-        document.getElementById("cstatus").innerHTML = faculty_data[0].cstatus;
+        document.getElementById("schedule").innerHTML = faculty_data[0].scheduleSY; */
+        
         $( "#modal" ).click();
     };
 
@@ -71,7 +92,7 @@
     
     //marker.fire('click'); //select 
     //var papa = {}
-    //papa['d1'] = {}
+    //papa['d1'] = {}               
 
     function getcontent(data, fdata){
         var Instructors = "";
