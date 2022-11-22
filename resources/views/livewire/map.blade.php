@@ -72,7 +72,7 @@
                     <div class="col-sm-6 mb-2 mt-2">
                         
                         <b class="text-">Current Position: </b> <span style="overflow-wrap: break-word;" id="position"></span> <br/>
-                        <b class="text-">Subjects: </b> <span style="overflow-wrap: break-word;" id="subjects"></span>Sample<br/><br/> 
+                        <b class="text-">Subjects: </b> <span style="overflow-wrap: break-word;" id="subjects"></span><br/><br/> 
                       
                       
                     </div>
