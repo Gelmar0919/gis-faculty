@@ -45,6 +45,7 @@
 
         document.getElementById("spouse").innerHTML = faculty_data[0].spouse;
         document.getElementById("description").innerHTML = faculty_data[0].description;
+        document.getElementById("positionstatus").innerHTML = faculty_data[0].positionstatus;
 
         document.getElementById("position").innerHTML = faculty_data[0].position;
         document.getElementById("subjects").innerHTML = faculty_data[0].subjects;
@@ -63,6 +64,7 @@
         document.getElementById("birthday").innerHTML = d.toLocaleDateString();
         document.getElementById("age").innerHTML = getAge(d);
         document.getElementById("cstatus").innerHTML = faculty_data[0].cstatus;
+        
         
 
         
@@ -98,7 +100,7 @@
         function click(e)
         {
             
-            const popupContent = getcontent(data.department, data.code, faculty.filter((fdata) => fdata.department_id == data.id));
+            const popupContent = getcontent(data.description, data.code, faculty.filter((fdata) => fdata.department_id == data.id));
             
             e.target.unbindPopup()
             e.target.bindPopup(popupContent);
@@ -114,36 +116,52 @@
     function getcontent(dept, data, fdata){
         var Instructors = "";
         //alert(JSON.stringify(fdata))
-        fdata.forEach((fdatac, fid) => {
+
+        /* fdata.forEach((fdatac, fid) => {
             //alert(fdatac.id)
             Instructors += `<button id="`+ fdatac.name +`" onclick="clickme(i = `+ fdatac.id +`,0)" type="button" class="d-flex justif-content-start btn w-100 btn-outline-secondary  btn-sm">`
             + (fid + 1) + `. ` + fdatac.name + `</button>`
+        }) */
+
+        fdata.forEach((fdatac, fid) => {
+            Instructors += `
+                <tr onclick="clickme(i = `+ fdatac.id +`,0)">
+                <td>`+ (fid + 1) +`</td>
+                <td>`+ fdatac.name +`</td>
+                </tr>
+                `
         })
+
         
+        
+       
+
+
         var sample = 
         `<div class="card">
             <div class="card-header bg-success">
                 <h3 class="card-title w-100">
                     <div class="col-md-12 text-lg d-flex justify-content-center align-items-center">`+ data.toUpperCase() +`
                     </div>
-                    <div class="col-md-12 mt-1 text-sm d-flex justify-content-center align-items-center" style="color: white; text-align: center">
-                    `+ dept +`
-                    </div>
                 </h3>
             </div>
-            <div class="card-body p-0" style="max-height: 150px; overflow: auto; overflow-x: hidden;">
-            <table class="table table-sm" style="min-width: 300px; " >
+            <div class="text-gray my-2" style="text-align: center">
+                    <th class='' style="font-size: 12px">`+ dept +`</th>
+            </div>
+            <div class="card-body p-0" >
+            <table class="table table-sm table-hover" style="min-width: 300px; " >
                 <thead>
-                <tr>
-                    <th class='' style="font-size: 16px">Faculty</th>
+                
+                <tr style="background-color: #e8e9eb">
+                      <th>No.</th>
+                      <th>Name</th>
                 </tr>
                 </thead>
-                <tbody style="">
-                <tr style="border:none; " >
-                    <td class="w-100 p-0 py-0" style="">` + 
-                    Instructors
-                    + `</td>
-                </tr>
+                <tbody style="height: 10px; overflow-y: auto; overflow-x: hidden;">` 
+                + 
+                Instructors
+                + 
+                `
                 </tbody>
             </table>
             </div>
@@ -151,6 +169,11 @@
         </div>
         <!-- /.card -->
         </div>`
+
+
+
+
+
 
         return sample;
     }

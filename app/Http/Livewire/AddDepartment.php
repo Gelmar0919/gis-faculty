@@ -17,6 +17,7 @@ class AddDepartment extends Component
     public $lang = "";
     public $code, $department;
     public $photo = "";
+    public $description;
 
     public function save(){
         $this->dispatchBrowserEvent('message');
@@ -37,7 +38,8 @@ class AddDepartment extends Component
                 'code' => $this->code, 
                 'department' => $this->department,
                 'latitude' => $this->lat,
-                'longitude' => $this->lang
+                'longitude' => $this->lang,
+                'description' => $this->description
                 )
         );
 

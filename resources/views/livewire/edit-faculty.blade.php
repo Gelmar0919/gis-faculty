@@ -135,6 +135,14 @@
             <div class="form-group">
                 <label >Current Position</label>
                 <input wire:model.lazy="position" type="text" class="form-control" placeholder="Position">
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" wire:model.lazy="positionstatus" value="COS" id="customRadio1" name="customRadio">
+                    <label for="customRadio1" class="custom-control-label">COS</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" wire:model.lazy="positionstatus" value="Permanent" id="customRadio2" name="customRadio" >
+                    <label for="customRadio2" class="custom-control-label">Permanent</label>
+                </div>
                 @error('position')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror

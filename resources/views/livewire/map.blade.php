@@ -106,6 +106,7 @@
                     </div>
                     <div class="col-sm-6 mb-2 mt-2">
                         <b class="text-">Current Position: </b> <span style="overflow-wrap: break-word;" id="position"></span> <br/>
+                        <b class="text-">Employment: </b> <span style="overflow-wrap: break-word;" id="positionstatus"></span> <br/>
                         <b class="text-">Designation: </b> <span style="overflow-wrap: break-word;" id="description"></span> <br/>
                         <b class="text-">Subjects Thought: </b> <span style="overflow-wrap: break-word;" id="subjects"></span><br/><br/>  
                     </div>

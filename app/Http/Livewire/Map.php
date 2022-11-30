@@ -18,7 +18,7 @@ class Map extends Component
 
         $this->faculty = DB::table('department')
         ->select('faculty.id','faculty.name','faculty.department_id','department.code','faculty.gender','faculty.address',
-        'faculty.birthday','faculty.contact','faculty.fb',
+        'faculty.birthday','faculty.positionstatus','faculty.contact','faculty.fb',
         'faculty.email','faculty.position','faculty.cstatus',
         'faculty.scheduleSY','faculty.subjects','faculty.bd','faculty.bdy',
         'faculty.md','faculty.mdy','faculty.dd','faculty.ddy',

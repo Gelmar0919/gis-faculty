@@ -22,6 +22,14 @@
                 @enderror
             </div>
 
+            <div class="form-group">
+                <label >Description</label>
+                <textarea wire:model.lazy="description" name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                @error('description')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            
             <div class="mt-4">
                 <form method="post" id="image-form">
                     <input type="file" name="img[]" wire:model="photo" class="file" accept="image/*">

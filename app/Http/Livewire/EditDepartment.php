@@ -20,6 +20,7 @@ class EditDepartment extends Component
     public $department_id;
     public $papaketchup;
     public $extensions;
+    public $description;
 
     
 
@@ -52,7 +53,9 @@ class EditDepartment extends Component
                 ['code' => $this->code, 
                 'department' => $this->department,
                 'latitude' => $this->lat,
-                'longitude' => $this->lang]
+                'longitude' => $this->lang,
+                'description' => $this->description
+                ]
         );
         
         //dd($newid);
@@ -87,7 +90,7 @@ class EditDepartment extends Component
     {   
         $this->department_id = $department_id;
         $this->papaketchup = DB::table('department')
-        ->select('id', 'code', 'department', 'latitude', 'longitude')
+        ->select('id', 'code', 'department', 'latitude', 'longitude', 'description')
         ->where("id",'=',$this->department_id)
         ->get();
 
@@ -97,6 +100,7 @@ class EditDepartment extends Component
         $this->department = $data->department;
         $this->lat = $data->latitude;
         $this->lang = $data->longitude;
+        $this->description = $data->description;
         
         
 

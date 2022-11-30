@@ -41,6 +41,7 @@ class EditFaculty extends Component
 
     public $spouse;
     public $description;
+    public $positionstatus = "COS";
 
     public function update(){
         $this->dispatchBrowserEvent('message');
@@ -94,6 +95,7 @@ class EditFaculty extends Component
                 'ddy' => $this->ddy, 
                 'spouse' => $this->spouse, 
                 'description' => $this->description, 
+                'positionstatus' => $this->positionstatus, 
                 ]
         );
 
@@ -151,7 +153,10 @@ class EditFaculty extends Component
         $this->mdy = $data->mdy;
         $this->dd = $data->dd;
         $this->ddy = $data->ddy; 
-        
+
+        $this->spouse = $data->spouse; 
+        $this->description = $data->description; 
+        $this->positionstatus = $data->positionstatus; 
         
         $filesInFolder = File::files(public_path("imgs\\faculties\\dynamic"));   
         //$this->extensions = array();

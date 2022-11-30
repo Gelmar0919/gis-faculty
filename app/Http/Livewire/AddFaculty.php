@@ -37,6 +37,7 @@ class AddFaculty extends Component
 
     public $spouse;
     public $description;
+    public $positionstatus = "COS";
 
 
     public function save(){
@@ -88,6 +89,7 @@ class AddFaculty extends Component
                 'ddy' => $this->ddy, 
                 'spouse' => $this->spouse, 
                 'description' => $this->description, 
+                'positionstatus' => $this->positionstatus, 
                 )
         );
 
