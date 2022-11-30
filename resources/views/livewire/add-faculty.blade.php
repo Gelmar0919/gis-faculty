@@ -157,7 +157,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label >Subjects:</label>
+                <label >Subject thought:</label>
                 <input wire:model.lazy="subjects" type="text" class="form-control" placeholder="Subjects">
                 @error('subjects')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
