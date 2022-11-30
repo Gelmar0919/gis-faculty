@@ -150,8 +150,8 @@
             </div>
 
             <div class="form-group">
-                <label >Description</label>
-                <input wire:model.lazy="description" type="text" class="form-control" placeholder="Description">
+                <label >Designation</label>
+                <input wire:model.lazy="description" type="text" class="form-control" placeholder="Designation">
                 @error('description')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
@@ -193,7 +193,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label >Doctors Degree:</label>
+                <label >Doctorate Degree:</label>
                 <input wire:model.lazy="dd" type="text" class="form-control" placeholder="Doctors Degree">
                 @error('dd')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
