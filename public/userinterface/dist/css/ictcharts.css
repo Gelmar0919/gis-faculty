@@ -228,3 +228,35 @@ animation-direction: alternate;
 		left: 4px;
 		/* width: 320px; */
 	}
+
+	table.scroll {
+		width: 100%; 
+	}
+	
+	table.scroll tbody, table.scroll thead { display: block; }
+	
+	table.scroll tbody {
+		height: 150px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	
+	/* tbody td, thead th {
+		width: 10%;
+		
+	} */
+
+	/* tbody td{
+		width: 50%;
+		
+	} */
+	
+	thead th {
+		width: 10%;
+		
+	}
+	
+	tbody td:last-child, thead th:last-child {
+		border-right: none;
+	}
+

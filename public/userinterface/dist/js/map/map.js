@@ -125,9 +125,9 @@
 
         fdata.forEach((fdatac, fid) => {
             Instructors += `
-                <tr onclick="clickme(i = `+ fdatac.id +`,0)">
-                <td>`+ (fid + 1) +`</td>
-                <td>`+ fdatac.name +`</td>
+                <tr onclick="clickme(i = `+ fdatac.id +`,0)" >
+                <td style="width: 60px">`+ (fid + 1) +`</td>
+                <td style="width: 240px">`+ fdatac.name +`</td>
                 </tr>
                 `
         })
@@ -148,16 +148,16 @@
             <div class="text-gray my-2" style="text-align: center">
                     <th class='' style="font-size: 12px">`+ dept +`</th>
             </div>
-            <div class="card-body p-0" >
-            <table class="table table-sm table-hover" style="min-width: 300px; " >
-                <thead>
+            <div class="card-body p-0 " >
+            <table class="table table-sm table-hover scroll" style="min-width: 300px;" >
+                <thead >
                 
                 <tr style="background-color: #e8e9eb">
                       <th>No.</th>
                       <th>Name</th>
                 </tr>
                 </thead>
-                <tbody style="height: 10px; overflow-y: auto; overflow-x: hidden;">` 
+                <tbody style="height: 150px">` 
                 + 
                 Instructors
                 + 
