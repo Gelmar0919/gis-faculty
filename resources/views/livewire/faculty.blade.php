@@ -107,43 +107,6 @@
               @include('set-sorting-icons',['field'=>'position'])
             </a></th>
             @endif
-            {{-- @if($this->showColumn('gender'))
-            <th ><a role="button" wire:click.prevent="sortField('gender')" style="width: 20%;">Gender
-              @include('set-sorting-icons',['field'=>'gender'])
-            </a></th>
-            @endif
-            @if($this->showColumn('address'))
-            <th ><a role="button" wire:click.prevent="sortField('address')" style="width: 20%;">Address
-              @include('set-sorting-icons',['field'=>'address'])
-            </a></th>
-            @endif
-            
-            @if($this->showColumn('fb'))
-            <th ><a role="button" wire:click.prevent="sortField('fb')" style="width: 20%;">FB Name
-              @include('set-sorting-icons',['field'=>'fb'])
-            </a></th>
-            @endif
-            @if($this->showColumn('email'))
-            <th ><a role="button" wire:click.prevent="sortField('email')" style="width: 20%;">Email
-              @include('set-sorting-icons',['field'=>'email'])
-            </a></th>
-            @endif
-            @if($this->showColumn('position'))
-            <th ><a role="button" wire:click.prevent="sortField('position')" style="width: 20%;">Position
-              @include('set-sorting-icons',['field'=>'position'])
-            </a></th>
-            @endif
-            @if($this->showColumn('cstatus'))
-            <th ><a role="button" wire:click.prevent="sortField('cstatus')" style="width: 20%;">Civil Status
-              @include('set-sorting-icons',['field'=>'cstatus'])
-            </a></th>
-            @endif
-            @if($this->showColumn('birthday'))
-            <th ><a role="button" wire:click.prevent="sortField('birthday')" style="width: 20%;">Birthday
-              @include('set-sorting-icons',['field'=>'birthday'])
-            </a></th>
-            @endif --}}
-            
            
             <th>Action</th>
             
@@ -164,25 +127,6 @@
                 @if($this->showColumn('position'))
                   <td>{{$data->position}}</td>
                 @endif
-                {{-- @if($this->showColumn('gender'))
-                  <td>{{$data->gender}}</td>
-                @endif
-                @if($this->showColumn('address'))
-                  <td>{{$data->address}}</td>
-                @endif
-                
-                @if($this->showColumn('fb'))
-                  <td>{{$data->fb}}</td>
-                @endif
-                @if($this->showColumn('email'))
-                  <td>{{$data->email}}</td>
-                @endif
-                @if($this->showColumn('position'))
-                  <td>{{$data->position}}</td>
-                @endif
-                @if($this->showColumn('cstatus'))
-                  <td>{{$data->cstatus}}</td>
-                @endif --}}
                 
                 
                 <td style="text-align: center;">

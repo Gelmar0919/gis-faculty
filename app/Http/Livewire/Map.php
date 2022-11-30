@@ -16,9 +16,23 @@ class Map extends Component
     public function ketchup(){
         $this->department = DB::table('department')->get();
 
-        $this->faculty = DB::table('faculty')
-        //->join('department','department.id', '=' ,'faculty.department_id')
+        $this->faculty = DB::table('department')
+        ->select('faculty.id','faculty.name','faculty.department_id','department.code','faculty.gender','faculty.address',
+        'faculty.birthday','faculty.contact','faculty.fb',
+        'faculty.email','faculty.position','faculty.cstatus',
+        'faculty.scheduleSY','faculty.subjects','faculty.bd','faculty.bdy',
+        'faculty.md','faculty.mdy','faculty.dd','faculty.ddy',
+        'faculty.name','department.latitude','department.longitude',
+        'faculty.spouse','faculty.description')
+        ->join('faculty','department.id', '=' ,'faculty.department_id')
         ->get();
+
+
+
+
+//dd($this->faculty);
+
+
 
         $filesInFolder = File::files(public_path("imgs\depts\dynamic"));   
         //$this->extensions = array();

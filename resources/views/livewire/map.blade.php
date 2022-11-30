@@ -1,9 +1,43 @@
-<div id="maps" class="col-12" style="height: 97vh;"></div>
+
+
+<div id="maps" class="col-12" style="height: 97vh;">
+  <div class="card form-group pintopmap mt-1" style=" width: 274px;">
+      <label style="font-size: 15px" class="mt-2 d-flex justify-content-center text-primary">
+          <span class="pt-1 pr-1 nav-icon fas fa-magnifying-glass">
+          </span>Search</label>
+      
+          <div class="input-group mb-2 ml-3">
+              <div class="" style="font-size: 15px; margin-left: -3px">
+                  <select class="form-control form-control-sm select2" onchange="search()" id="search" data-placeholder="Search Faculty" style="width: 250px;">
+                      <option></option>
+                      @foreach ($faculty as $data)
+                          <option value="{{$data->name}}">{{$data->name}}</option>
+                      @endforeach
+                  </select>
+              </div>
+          </div>
+  </div>
+
+  
+  {{-- <div class="card float-right form-group total mt-1" style="background-color:#89c2f5; height: 40px">
+      <div class="row mr-3 ml-1" style="font-size: 15px;">
+      <label for="" class="ml-3 pt-2 pr-2" id="total" style="font-size: 15px; color: rgb(255, 255, 255)">Total:</label>
+      </div>
+  </div> --}}
+</div>
+
+
 <script>
     department = @json($department);
     faculty = @json($faculty);
     extensions = @json($extensions);
     extensionsfaculty = @json($extensionsfaculty);
+
+    $(function () {
+      $('.select2').select2({  
+      allowClear: true
+      });
+  })
 </script>
 <button id="modal" type="button" style="display: none"  class="btn btn-primary" data-toggle="modal" data-target="#moreinfo"></button>
 <div class="modal fade" id="moreinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -37,6 +71,7 @@
                         <b class="text-">Birthday: </b> <span style="overflow-wrap: break-word;" id="birthday"></span> <br/>
                         <b class="text-">Age: </b> <span style="overflow-wrap: break-word;" id="age"></span> <br/>
                         <b class="text-">Civil Status: </b> <span style="overflow-wrap: break-word;" id="cstatus"></span> <br/>
+                        <b class="text-">Spouse: </b> <span style="overflow-wrap: break-word;" id="spouse"></span> <br/>
                       
                         {{-- <b>Contact #: </b> <span id="contact"></span> <br/>
                         <b>FB Name: </b> <span id="fb"></span> <br/>
@@ -64,17 +99,15 @@
                     <div class="col-sm-6 mt-2">
                       <b class="text-">Baccalaureate Degree: </b> <span style="overflow-wrap: break-word;" id="bd"></span> <br/>
                       <b class="text-">Year Graduated: </b> <span style="overflow-wrap: break-word;" id="bdy"></span> <br/><br/>
-                      <b class="text-">Master's Degree: </b> <span style="overflow-wrap: break-word;" id="md"></span> <br/>
+                      <b class="text-">Master Degree: </b> <span style="overflow-wrap: break-word;" id="md"></span> <br/>
                       <b class="text-">Year Graduated: </b> <span style="overflow-wrap: break-word;" id="mdy"></span> <br/><br/>
                       <b class="text-">Doctorate Degree: </b> <span style="overflow-wrap: break-word;" id="dd"></span> <br/>
                       <b class="text-">Year Graduated: </b> <span style="overflow-wrap: break-word;" id="ddy"></span> <br/><br/> 
                     </div>
                     <div class="col-sm-6 mb-2 mt-2">
-                        
                         <b class="text-">Current Position: </b> <span style="overflow-wrap: break-word;" id="position"></span> <br/>
-                        <b class="text-">Subjects: </b> <span style="overflow-wrap: break-word;" id="subjects"></span><br/><br/> 
-                      
-                      
+                        <b class="text-">Description: </b> <span style="overflow-wrap: break-word;" id="description"></span> <br/>
+                        <b class="text-">Subjects Thought: </b> <span style="overflow-wrap: break-word;" id="subjects"></span><br/><br/>  
                     </div>
                   
                   </div>

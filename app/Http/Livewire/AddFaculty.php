@@ -35,6 +35,9 @@ class AddFaculty extends Component
     public $dd;
     public $ddy;
 
+    public $spouse;
+    public $description;
+
 
     public function save(){
         $this->dispatchBrowserEvent('message');
@@ -83,6 +86,8 @@ class AddFaculty extends Component
                 'mdy' => $this->mdy, 
                 'dd' => $this->dd, 
                 'ddy' => $this->ddy, 
+                'spouse' => $this->spouse, 
+                'description' => $this->description, 
                 )
         );
 

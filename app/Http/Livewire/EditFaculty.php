@@ -39,11 +39,14 @@ class EditFaculty extends Component
     public $dd;
     public $ddy;
 
+    public $spouse;
+    public $description;
+
     public function update(){
         $this->dispatchBrowserEvent('message');
 
         $this->validate([
-            'name' => ['required','regex:/^[a-zA-Z\s]+$/'],
+            'name' => ['required','regex:/^[.a-zA-Z\s]+$/'],
             'gender' => ['required'],
             'address' => ['required','regex:/^[a-zA-Z0-9,\s]+$/'],
             //'email' => ['required','email'],
@@ -89,6 +92,8 @@ class EditFaculty extends Component
                 'mdy' => $this->mdy, 
                 'dd' => $this->dd, 
                 'ddy' => $this->ddy, 
+                'spouse' => $this->spouse, 
+                'description' => $this->description, 
                 ]
         );
 

@@ -215,3 +215,16 @@ animation-direction: alternate;
 	position: absolute;
 	}
   
+	.pintopmap {
+		/* z-index: 1000;
+		position: fixed;
+		top: 5px;
+		right: 5px;
+		max-width: 320px; */
+		z-index: 809;
+		position: absolute;
+		display:block;
+		top: 9px;
+		left: 4px;
+		/* width: 320px; */
+	}

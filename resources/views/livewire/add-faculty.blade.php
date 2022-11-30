@@ -14,6 +14,13 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label >Spouse</label>
+                <input wire:model.lazy="spouse" type="text" class="form-control" placeholder="Spouse">
+                @error('spouse')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label>Gender</label>
                 
                 <select class="form-control" wire:model="gender" >
@@ -129,6 +136,13 @@
                 <label >Current Position</label>
                 <input wire:model.lazy="position" type="text" class="form-control" placeholder="Position">
                 @error('position')
+                    <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label >Description</label>
+                <input wire:model.lazy="description" type="text" class="form-control" placeholder="Description">
+                @error('description')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror
             </div>

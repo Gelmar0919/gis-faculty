@@ -2,8 +2,12 @@
     
 
     var map = L.map('maps', {
-        zoomControl: true
+        zoomControl: false
     }).setView([16.937732, 121.764440], 18);
+
+    L.control.zoom({
+        position: 'topright'
+    }).addTo(map);
 
     googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
         maxZoom: 20,
@@ -29,9 +33,18 @@
     };
 
 
-    function clickme(id){
-        faculty_data = faculty.filter(data => data.id == id);
+    function clickme(id, search){
+        if(search == 1){
+            faculty_data = faculty.filter(data => data.name == id);
+        }else{
+            faculty_data = faculty.filter(data => data.id == id);
+        }
+        
         var d = new Date(faculty_data[0].birthday);
+
+
+        document.getElementById("spouse").innerHTML = faculty_data[0].spouse;
+        document.getElementById("description").innerHTML = faculty_data[0].description;
 
         document.getElementById("position").innerHTML = faculty_data[0].position;
         document.getElementById("subjects").innerHTML = faculty_data[0].subjects;
@@ -41,6 +54,7 @@
         document.getElementById("bdy").innerHTML = faculty_data[0].bdy;
         document.getElementById("mdy").innerHTML = faculty_data[0].mdy;
         document.getElementById("ddy").innerHTML = faculty_data[0].ddy;
+       
 
         document.getElementById("img").src = "../../../imgs/faculties/dynamic/"+ faculty_data[0].id +"." + extensionsfaculty[faculty_data[0].id];
         document.getElementById("name").innerHTML = faculty_data[0].name;
@@ -49,6 +63,7 @@
         document.getElementById("birthday").innerHTML = d.toLocaleDateString();
         document.getElementById("age").innerHTML = getAge(d);
         document.getElementById("cstatus").innerHTML = faculty_data[0].cstatus;
+        
 
         
         /* alert(JSON.stringify(faculty_data[0])); */
@@ -62,30 +77,32 @@
         $( "#modal" ).click();
     };
 
-    L.control.layers(baseLayers, null, {position: 'topleft'}).addTo(map);
+    L.control.layers(baseLayers, null, {position: 'topright'}).addTo(map);
 
     //SAMPLES
     //alert(JSON.stringify(faculty));
 
+    var flyToDept = new Map();
     department.forEach(data => {
         
         var myIcon = L.icon({
             iconUrl: '../../../imgs/depts/dynamic/'+ data.id +"." + extensions[data.id],
             iconSize: [48, 50]
         });
-        L.marker([data.longitude, data.latitude], {
+        val = L.marker([data.longitude, data.latitude], {
             icon: myIcon
         }).addTo(map).on('click', click);
 
+        flyToDept.set(data.code,val);
+
         function click(e)
         {
-            JSON.stri
-            const popupContent = getcontent(data.code, faculty.filter((fdata) => fdata.department_id == data.id));
+            
+            const popupContent = getcontent(data.department, data.code, faculty.filter((fdata) => fdata.department_id == data.id));
             
             e.target.unbindPopup()
             e.target.bindPopup(popupContent);
             e.target.openPopup();
-            
         }
     });
 
@@ -94,12 +111,12 @@
     //var papa = {}
     //papa['d1'] = {}               
 
-    function getcontent(data, fdata){
+    function getcontent(dept, data, fdata){
         var Instructors = "";
         //alert(JSON.stringify(fdata))
         fdata.forEach((fdatac, fid) => {
             //alert(fdatac.id)
-            Instructors += `<button onclick="clickme(i = `+ fdatac.id +`)" type="button" class="d-flex justif-content-start btn w-100 btn-outline-secondary  btn-sm">`
+            Instructors += `<button id="`+ fdatac.name +`" onclick="clickme(i = `+ fdatac.id +`,0)" type="button" class="d-flex justif-content-start btn w-100 btn-outline-secondary  btn-sm">`
             + (fid + 1) + `. ` + fdatac.name + `</button>`
         })
         
@@ -108,6 +125,9 @@
             <div class="card-header bg-success">
                 <h3 class="card-title w-100">
                     <div class="col-md-12 text-lg d-flex justify-content-center align-items-center">`+ data.toUpperCase() +`
+                    </div>
+                    <div class="col-md-12 mt-1 text-sm d-flex justify-content-center align-items-center" style="color: white; text-align: center">
+                    `+ dept +`
                     </div>
                 </h3>
             </div>
@@ -134,7 +154,56 @@
 
         return sample;
     }
-   
+
+
+
+
+    var total = document.getElementById('search'); 
+    function search(){
+        
+        if(total.value){
+            faculty_data = faculty.filter(data => data.name == total.value);
+
+
+            //alert(JSON.stringify(faculty_data));
+            map.flyTo([faculty_data[0].longitude, faculty_data[0].latitude], 20, {
+                animate: true,
+                duration: 0.5 
+            }); 
+
+            //document.getElementById(faculty_data[0].name).style.backgroundColor = 'white'; 
+
+            flyToDept.get(faculty_data[0].code).fire('click');
+            setTimeout(
+                function() {
+                    clickme(total.value,1);
+                }, 500
+            );
+            
+            //alert(total.value)
+            //clickme(total.value,1);
+        }else{
+            map.flyTo([16.937732, 121.764440], 18, {
+                animate: true,
+                duration: 0.5 
+            }); 
+        }
+        
+        
+        /* map.flyTo([16.937732, 121.764440], 18, {
+            animate: true,
+            duration: 0.5 
+        }); */
+        
+        
+        /* 
+        if (selectElement2.value == "All"){ 
+            restoreAll();
+        }else{
+            selectAge(selectElement2.value);
+
+        } */
+    }
     
 
     
