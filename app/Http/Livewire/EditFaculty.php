@@ -126,8 +126,31 @@ class EditFaculty extends Component
     {   
         $this->faculty_id = $faculty_id;
         $this->papaketchup = DB::table('faculty')
-        //->select('faculty.id', 'faculty.name', 'faculty.gender', 'faculty.address', 'faculty.birthday','department.department',
-        //'faculty.contact', 'faculty.fb', 'faculty.email', 'faculty.cstatus', 'faculty.position','faculty.scheduleSY','faculty.department_id')
+        ->select('faculty.id', 'faculty.name', 'faculty.gender', 'faculty.address', 'faculty.birthday','department.department',
+        'faculty.contact', 'faculty.fb', 'faculty.email', 'faculty.cstatus', 'faculty.position','faculty.scheduleSY','faculty.department_id',
+        'faculty.name',
+        'faculty.gender',
+        'faculty.address',
+        'faculty.birthday',
+        'faculty.department_id',
+        'faculty.contact',
+        'faculty.fb',
+        'faculty.email',
+        'faculty.cstatus',
+        'faculty.position',
+        'faculty.scheduleSY',
+        'faculty.subjects',
+        'faculty.bd',
+        'faculty.bdy',
+        'faculty.md',
+        'faculty.mdy',
+        'faculty.dd',
+        'faculty.ddy', 
+
+        'faculty.spouse', 
+        'faculty.description', 
+        'faculty.positionstatus')
+
         ->join('department','department.id','=','faculty.department_id')
         ->where("faculty.id",'=',$faculty_id)
         ->get();
