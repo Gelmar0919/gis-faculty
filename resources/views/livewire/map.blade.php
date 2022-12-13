@@ -8,10 +8,16 @@
       
           <div class="input-group mb-2 ml-3">
               <div class="" style="font-size: 15px; margin-left: -3px">
-                  <select class="form-control form-control-sm select2" onchange="search()" id="search" data-placeholder="Search Faculty" style="width: 250px;">
+                  <select class="form-control form-control-sm select2" onchange="search()" id="search" data-placeholder="Search Faculty/Department" style="width: 250px;">
                       <option></option>
                       @foreach ($faculty as $data)
                           <option value="{{$data->name}}">{{$data->name}}</option>
+                      @endforeach
+                      @foreach ($department as $data)
+                          <option value="{{$data->code}}">{{$data->code}}</option>
+                      @endforeach
+                      @foreach ($department as $data)
+                          <option value="{{$data->department}}">{{$data->department}}</option>
                       @endforeach
                   </select>
               </div>

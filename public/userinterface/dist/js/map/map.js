@@ -96,6 +96,9 @@
         }).addTo(map).on('click', click);
 
         flyToDept.set(data.code,val);
+        flyToDept.set(data.department,val);
+
+
 
         function click(e)
         {
@@ -185,23 +188,37 @@
     function search(){
         
         if(total.value){
-            faculty_data = faculty.filter(data => data.name == total.value);
+            if(flyToDept.has(total.value)){
+                faculty_data = department.filter(data => (data.code == total.value || data.department == total.value));
 
 
-            //alert(JSON.stringify(faculty_data));
-            map.flyTo([faculty_data[0].longitude, faculty_data[0].latitude], 20, {
-                animate: true,
-                duration: 0.5 
-            }); 
+                //alert(JSON.stringify(faculty_data));
+                map.flyTo([faculty_data[0].longitude, faculty_data[0].latitude], 20, {
+                    animate: true,
+                    duration: 0.5 
+                }); 
 
-            //document.getElementById(faculty_data[0].name).style.backgroundColor = 'white'; 
+                flyToDept.get(total.value).fire('click');
+            }else{
+                faculty_data = faculty.filter(data => data.name == total.value);
 
-            flyToDept.get(faculty_data[0].code).fire('click');
-            setTimeout(
-                function() {
-                    clickme(total.value,1);
-                }, 500
-            );
+
+                //alert(JSON.stringify(faculty_data));
+                map.flyTo([faculty_data[0].longitude, faculty_data[0].latitude], 20, {
+                    animate: true,
+                    duration: 0.5 
+                }); 
+    
+                //document.getElementById(faculty_data[0].name).style.backgroundColor = 'white'; 
+    
+                flyToDept.get(faculty_data[0].code).fire('click');
+                setTimeout(
+                    function() {
+                        clickme(total.value,1);
+                    }, 500
+                );
+            }
+            
             
             //alert(total.value)
             //clickme(total.value,1);

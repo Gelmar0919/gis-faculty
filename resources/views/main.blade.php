@@ -33,6 +33,10 @@
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
+          {{-- <li class="nav-item">
+            <a href="{{ route('dashboard') }}" class="nav-link {{ (Request::is('*dashboard*') ? 'active' : '') }}">
+              <i class="nav-icon fas fa-gauge-high pr-2"></i>Dashboard</a>
+          </li> --}}
           @guest
            @else
           <li class="nav-item">

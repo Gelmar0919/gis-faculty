@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\dashboard;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,8 @@ Route::get('/', function(){
 Route::get('/map', function () {
     return view('map');
 })->name('map');
+
+Route::get('/dashboard', [dashboard::class, 'index'])->name('dashboard');
 
 Route::group(['middleware' => ['auth']],function () {
     Route::get('/department', function () {
