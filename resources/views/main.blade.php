@@ -33,15 +33,16 @@
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-          {{-- <li class="nav-item">
+          <li class="nav-item">
             <a href="{{ route('dashboard') }}" class="nav-link {{ (Request::is('*dashboard*') ? 'active' : '') }}">
               <i class="nav-icon fas fa-gauge-high pr-2"></i>Dashboard</a>
-          </li> --}}
-          @guest
-           @else
+          </li>
           <li class="nav-item">
             <a href="{{ route('map') }}" class="nav-link {{ (Request::is('*map*') ? 'active' : '') }}"><i class="nav-icon fas fa-location-dot pr-2"></i>Map</a>
           </li>
+          @guest
+           @else
+          
           <li class="nav-item">
             <a href="{{ route('department') }}" class="nav-link {{ (Request::is('*department*') ? 'active' : '') }}"><i class="nav-icon fas fa-building pr-2"></i>Departments</a>
           </li>

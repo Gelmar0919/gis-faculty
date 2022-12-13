@@ -44,7 +44,7 @@ class AddFaculty extends Component
         $this->dispatchBrowserEvent('message');
 
         $this->validate([
-            'name' => ['required','regex:/^[a-zA-Z\s]+$/'],
+            'name' => ['required','regex:/^[.a-zA-Z\s]+$/'],
             'gender' => ['required'],
             'address' => ['required','regex:/^[a-zA-Z0-9,\s]+$/'],
             //'email' => ['required','email'],
