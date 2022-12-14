@@ -94,8 +94,8 @@ class AddFaculty extends Component
         );
 
         //dd($newid);
-        $filename = 'imgs\\faculties\\dynamic\\'.$newid.".png";
-        $filesInFolder = File::files(public_path("imgs\\faculties\\dynamic"));   
+        $filename = 'imgs/faculties/dynamic/'.$newid.".png";
+        $filesInFolder = File::files(public_path("imgs/faculties/dynamic"));   
             foreach($filesInFolder as $path) { 
                 $file = pathinfo($path);
                 if($file['filename'] == $newid){
@@ -103,11 +103,11 @@ class AddFaculty extends Component
                 }
             } 
         if($this->photo == ""){
-            File::copy(public_path("imgs\\faculties\static\default.jpg"), public_path($filename));
+            File::copy(public_path("imgs/faculties/static/default.jpg"), public_path($filename));
         }else{
 
             $img = $newid.".".$this->photo->getClientOriginalExtension();
-            $this->photo->storeAs('imgs\\faculties\\dynamic', $img, 'real_public');
+            $this->photo->storeAs('imgs/faculties/dynamic', $img, 'real_public');
         };
 
         redirect()->route('faculty');

@@ -44,8 +44,8 @@ class AddDepartment extends Component
         );
 
         //dd($newid);
-        $filename = 'imgs\\depts\\dynamic\\'.$newid.".png";
-        $filesInFolder = File::files(public_path("imgs\depts\dynamic"));   
+        $filename = 'imgs/depts/dynamic/'.$newid.".png";
+        $filesInFolder = File::files(public_path("imgs/depts/dynamic"));   
             foreach($filesInFolder as $path) { 
                 $file = pathinfo($path);
                 if($file['filename'] == $newid){
@@ -53,7 +53,7 @@ class AddDepartment extends Component
                 }
             } 
         if($this->photo == ""){
-            File::copy(public_path("imgs\depts\static\default.png"), public_path($filename));
+            File::copy(public_path("imgs/depts/static/default.png"), public_path($filename));
         }else{
 
             $img = $newid.".".$this->photo->getClientOriginalExtension();

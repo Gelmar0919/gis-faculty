@@ -66,7 +66,7 @@ class EditDepartment extends Component
         if($this->photo != ""){
             /* File::copy(public_path($filename), public_path($filename));
         }else{ */
-            $filesInFolder = File::files(public_path("imgs\depts\dynamic"));   
+            $filesInFolder = File::files(public_path("imgs/depts/dynamic"));   
             foreach($filesInFolder as $path) { 
                 $file = pathinfo($path);
                 if($file['filename'] == $this->department_id){
@@ -104,7 +104,7 @@ class EditDepartment extends Component
         
         
 
-        $filesInFolder = File::files(public_path("imgs\depts\dynamic"));   
+        $filesInFolder = File::files(public_path("imgs/depts/dynamic"));   
         //$this->extensions = array();
         foreach($filesInFolder as $path) { 
             $file = pathinfo($path);

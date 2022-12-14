@@ -101,11 +101,11 @@ class EditFaculty extends Component
 
 
 
-        $filename = `imgs\\faculties\\dynamic\\`.$this->faculty_id.".".$this->extensions[$this->faculty_id];
+        $filename = `imgs/faculties/dynamic/`.$this->faculty_id.".".$this->extensions[$this->faculty_id];
         if($this->photo != ""){
             /* File::copy(public_path($filename), public_path($filename));
         }else{ */
-            $filesInFolder = File::files(public_path("imgs\\faculties\\dynamic"));   
+            $filesInFolder = File::files(public_path("imgs/faculties/dynamic"));   
             foreach($filesInFolder as $path) { 
                 $file = pathinfo($path);
                 if($file['filename'] == $this->faculty_id){
@@ -181,7 +181,7 @@ class EditFaculty extends Component
         $this->description = $data->description; 
         $this->positionstatus = $data->positionstatus; 
         
-        $filesInFolder = File::files(public_path("imgs\\faculties\\dynamic"));   
+        $filesInFolder = File::files(public_path("imgs/faculties/dynamic"));   
         //$this->extensions = array();
         foreach($filesInFolder as $path) { 
             $file = pathinfo($path);
