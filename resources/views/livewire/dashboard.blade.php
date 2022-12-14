@@ -111,7 +111,7 @@
                 <td style="text-align: center">{{ $data->count }}</td>
                 <td>
                 <div class="progress progress-xs mt-2">
-                    <div class="progress-bar bg-primary" style="width: {{ ($data->count / 4) * 100 }}%;"></div>
+                    <div class="progress-bar bg-primary" style="width: {{ ($data->count / $highest[0]->count) * 100 }}%;"></div>
                 </div>
                 </td>
             </tr>

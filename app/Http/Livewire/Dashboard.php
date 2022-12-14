@@ -21,6 +21,8 @@ class Dashboard extends Component
     public $sortAsc = true;
     public $totaldeps;
 
+    public $highest;
+
     //public $columns = ['deparment','address','birthday','barangay'];
     public $selectedColumns = [];
     public function showColumn($column)
@@ -49,6 +51,16 @@ class Dashboard extends Component
         $this->totaldeps = DB::table('department')
         ->select(DB::raw('count(id) as total'))
         ->get();
+
+        $this->highest = DB::table('faculty')
+        ->select(DB::raw('count(faculty.id) as count'))
+        ->rightJoin('department','faculty.department_id','=','department.id')
+        ->where('department.department', 'like', '%'.$this->search.'%')
+        ->groupBy('department.department')
+        ->orderBy('count','desc')
+        ->get();
+
+        //dd($this->highest);
 
         /* $papa = DB::table('faculty')
         ->select(DB::raw('count(faculty.id) as count'),'department.barangay')
