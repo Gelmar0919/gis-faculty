@@ -34,7 +34,7 @@ class Map extends Component
 
 
 
-        $filesInFolder = File::files(public_path("imgs\depts\dynamic"));   
+        $filesInFolder = File::files(public_path("imgs/depts/dynamic"));   
         //$this->extensions = array();
         foreach($filesInFolder as $path) { 
             $file = pathinfo($path);
@@ -44,7 +44,7 @@ class Map extends Component
 
         } 
 
-        $filesInFolder = File::files(public_path("imgs\\faculties\\dynamic"));   
+        $filesInFolder = File::files(public_path("imgs/faculties/dynamic"));   
         //$this->extensions = array();
         foreach($filesInFolder as $path) { 
             $file = pathinfo($path);
